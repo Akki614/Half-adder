@@ -1,0 +1,27 @@
+//source code
+module half_adder(sum,carry,a,b);
+input a,b;
+output sum,carry;
+xor x(sum,a,b);
+and a1(carry,a,b);
+endmodule
+
+
+//test bench code
+module half_adder_tb();
+reg t_a,t_b;
+wire t_sum,t_carry;
+
+half_adder dut(.a(t_a),.b(t_b),.sum(t_sum),.carry(t_carry));
+initial begin
+t_a=0;t_b=0;
+#10
+t_a=0;t_b=1;
+#10
+t_a=1;t_b=0;
+#10
+t_a=1;t_b=1;
+#10
+$stop;
+end
+endmodule
